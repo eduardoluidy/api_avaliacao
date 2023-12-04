@@ -15,6 +15,8 @@ namespace API_Avaliacao.Infraestructure.Data
         //private string urlConnection = "Data Source=SqlServer-2022,1433;initial catalog=AvaliacaoDB;User ID=sa;Password=SqlServer2022!;encrypt=False";
         //p/rodar local:
         private string urlConnection = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=AvaliacaoDB;Integrated Security=True";
+        //private string urlConnection = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=AvaliacaoDB;Integrated Security=True;Globalization Invariant=True;";
+
 
         /*
         public ConnectionDbContext(DbContextOptions<ConnectionDbContext> options) : base(options)
@@ -43,20 +45,7 @@ namespace API_Avaliacao.Infraestructure.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            //modelBuilder.Entity<Pessoa>().ToTable();
-           // modelBuilder.Entity<Pessoa>()
-           //  .ToTable("pessoa")
-           //   .Property(b => b.Nome);
-           // .IsRequired();
-           // modelBuilder.Entity<Pessoa>().HasData(
-           //    new Pessoa { Id = 1, Nome = "João", Matricula = "123" },
-           //    new Pessoa { Id = 2, Nome = "Maria", Matricula = "456" },
-           //    new Pessoa { Id = 3, Nome = "Taisa", Matricula = "333" },
-           //    new Pessoa { Id = 4, Nome = "José", Matricula = "555" },
-           //    new Pessoa { Id = 5, Nome = "Robson", Matricula = "789" },
-           //    new Pessoa { Id = 6, Nome = "Eduardo", Matricula = "564" },
-           //    new Pessoa { Id = 7, Nome = "Narto", Matricula = "999" }
-           //);
+
         }
     }
 }

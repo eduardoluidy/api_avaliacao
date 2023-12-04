@@ -120,6 +120,7 @@ C:\Users\04530467465\source\API_Avaliacao\API_Avaliacao\API_Avaliacao\obj\Debug\
 C:\Users\04530467465\source\API_Avaliacao\API_Avaliacao\API_Avaliacao\obj\Debug\net8.0\API_Avaliacao.csproj.CoreCompileInputs.cache
 C:\Users\04530467465\source\API_Avaliacao\API_Avaliacao\API_Avaliacao\obj\Debug\net8.0\API_Avaliacao.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\04530467465\source\API_Avaliacao\API_Avaliacao\API_Avaliacao\obj\Debug\net8.0\API_Avaliacao.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\04530467465\source\API_Avaliacao\API_Avaliacao\API_Avaliacao\obj\Debug\net8.0\API_Avaliacao.sourcelink.json
 C:\Users\04530467465\source\API_Avaliacao\API_Avaliacao\API_Avaliacao\obj\Debug\net8.0\staticwebassets.build.json
 C:\Users\04530467465\source\API_Avaliacao\API_Avaliacao\API_Avaliacao\obj\Debug\net8.0\staticwebassets.development.json
 C:\Users\04530467465\source\API_Avaliacao\API_Avaliacao\API_Avaliacao\obj\Debug\net8.0\staticwebassets\msbuild.API_Avaliacao.Microsoft.AspNetCore.StaticWebAssets.props
