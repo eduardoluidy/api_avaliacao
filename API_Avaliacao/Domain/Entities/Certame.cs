@@ -9,11 +9,7 @@ namespace API_Avaliacao.Domain.Entities
         public string Descricao { get; set; }
         public DateTimeOffset DataInicio { get; set; }
         public DateTimeOffset DataFim { get; set; }
-        //public Pessoa? Pessoa { get; set; }
         public ICollection<Pessoa>? pessoas { get; set; }
-        public TipoCertameEnum tipo { get; set; }
+        public TipoCertameEnum tipo { get; set; } //Antiguidade, Merecimento
     }
-
-//        public enum TipoCertameEnum { Antiguidade, Merecimento }
-
 }
