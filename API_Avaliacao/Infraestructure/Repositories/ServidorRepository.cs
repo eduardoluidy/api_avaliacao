@@ -14,62 +14,69 @@ namespace API_Avaliacao.Infraestructure.Repositories
             _dbContext = dbContext;
         }
 
-        //public List<Servidor> Get()
-        //{
-        //    return _dbContext.Servidores.ToList();
-        //}
-
         public async Task<List<Servidor>> Get()
         {
             return await _dbContext.Servidores.OrderBy(a => a.Id).ToListAsync();
         }
 
-        public void Add(Servidor servidor)
+        public async Task Add(Servidor servidor)
         {
             _dbContext.Add(servidor);
-            _dbContext.SaveChanges();
+            await _dbContext.SaveChangesAsync();
         }
 
-        public Servidor? GetById(int id)
+        public async Task<Servidor> GetById(long id)
         {
-            return _dbContext.Servidores.FirstOrDefault(a => a.Id == id);
+            var servidor = await _dbContext.Servidores.FindAsync(id);
+            //if (servidor == null)
+            //{
+            //    throw new InvalidOperationException();
+            //}
+            return servidor;
         }
 
-        public Servidor? GetByMatricula(string matricula)
+        public async Task<Servidor> GetByMatricula(string matricula)
         {
-            return _dbContext.Servidores.FirstOrDefault(a => a.Matricula == matricula);
+            return await _dbContext.Servidores.FirstOrDefaultAsync(a => a.Matricula == matricula);
         }
 
-        public bool Delete(int id)
+        public async Task Delete(long id)
         {
-            var pessoa = _dbContext.Servidores.FirstOrDefault(p => p.Id == id);
+            var servidor = await _dbContext.Servidores.FindAsync(id);
 
-            if (pessoa != null)
+            if (servidor != null)
             {
-                _dbContext.Pessoas.Remove(pessoa);
-                _dbContext.SaveChanges();
-                return true;
+                _dbContext.Pessoas.Remove(servidor);
+                await _dbContext.SaveChangesAsync();            
             }
-            else
-                return false;
         }
 
-
-        public void UpdateParcial(int id, Servidor servidorPatch)
+        public async Task UpdateParcial(long id, Servidor servidorPatch)
         {
-            var pessoa = _dbContext.Servidores.FirstOrDefault(p => p.Id == id);
+            var servidor = await _dbContext.Servidores.FindAsync(id);
 
-            if (pessoa != null)
+            if (servidor != null)
             {
                 // alterações parciais
                 if (!string.IsNullOrEmpty(servidorPatch.Nome))
-                    pessoa.Nome = servidorPatch.Nome;
+                    servidor.Nome = servidorPatch.Nome;
 
                 if (!string.IsNullOrEmpty(servidorPatch.Matricula))
-                    pessoa.Matricula = servidorPatch.Matricula;
+                    servidor.Matricula = servidorPatch.Matricula;
+                
+                if (!string.IsNullOrEmpty(servidorPatch.Email))
+                    servidor.Email = servidorPatch.Email;
+                
+                if (!string.IsNullOrEmpty(servidorPatch.Cpf))
+                    servidor.Cpf = servidorPatch.Cpf;
 
-                _dbContext.SaveChanges();
+                if (servidorPatch.Lotacao is not null)
+                    servidor.Lotacao = servidorPatch.Lotacao;
+
+                //_dbContext.SaveChanges();
+                await _dbContext.SaveChangesAsync();
+
             }
-        }
+        }       
     }
 }

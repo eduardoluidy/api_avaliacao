@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Avaliacao_Api.Controllers
 {
-    public class AvaliacaoController : Controller
+    public class AvaliacoesController : Controller
     {
         // GET: AvaliacaoController
         public ActionResult Index()

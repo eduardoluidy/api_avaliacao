@@ -1,3 +1,4 @@
+using API_Avaliacao.Application.Mappings;
 using API_Avaliacao.Domain.Interfaces;
 using API_Avaliacao.Infraestructure.Data;
 using API_Avaliacao.Infraestructure.Repositories;
@@ -14,9 +15,12 @@ builder.Services.AddSwaggerGen();
 ////
 builder.Services.AddDbContext<ConnectionDbContext>();
 
+//configuração de injeção de dependencia (AddSingleton, AddScoped, AddTransiente)
 builder.Services.AddScoped<IPessoaRepository, PessoaRepository>();
 builder.Services.AddScoped<IServidorRepository, ServidorRepository>();
-////
+
+builder.Services.AddAutoMapper(typeof(EntitiesToDtoMappingProfile));
+//
 
 var app = builder.Build();
 
