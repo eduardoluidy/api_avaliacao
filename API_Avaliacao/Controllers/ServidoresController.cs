@@ -10,19 +10,19 @@ namespace Avaliacao_Api.Controllers
     [ApiController]
     public class ServidoresController : ControllerBase
     {
-        private readonly IServidorRepository _repository;
+        private readonly IServidorService _service;
         private readonly IMapper _mapper;
 
-        public ServidoresController(IServidorRepository repository, IMapper mapper)
+        public ServidoresController(IServidorService servidorService, IMapper mapper)
         {
             _mapper = mapper;
-            _repository = repository;
+            _service = servidorService;
         }
 
         [HttpGet]
         public async Task<IActionResult> Get()
         {
-            var listaServidores = await _repository.Get();
+            var listaServidores = await _service.Get();
             List<ServidorDTO> servidoresRetorno = new List<ServidorDTO>();
 
             foreach (var servidor in listaServidores) {
@@ -35,7 +35,7 @@ namespace Avaliacao_Api.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> Get(long id)
         {
-            var servidor = await _repository.GetById(id);
+            var servidor = await _service.GetById(id);
 
             if (servidor == null)
                 return NotFound("Não encontrado!");
@@ -49,7 +49,7 @@ namespace Avaliacao_Api.Controllers
             try
             {
                 var servidor = _mapper.Map<Servidor>(servidorDTO);
-                await _repository.Add(servidor);
+                await _service.Add(servidor);
                 return Ok(servidor);
             }
             catch (Exception ex)
@@ -63,7 +63,7 @@ namespace Avaliacao_Api.Controllers
         {
             var servidor = _mapper.Map<Servidor>(servidorDTO);
 
-            await _repository.UpdateParcial(id, servidor);
+            await _service.UpdateParcial(id, servidor);
 
             return Ok(servidor);
         }
@@ -73,7 +73,7 @@ namespace Avaliacao_Api.Controllers
         {
             try
             {
-                await _repository.Delete(id);
+                await _service.Delete(id);
                 return Ok();
             }
             catch (Exception ex)

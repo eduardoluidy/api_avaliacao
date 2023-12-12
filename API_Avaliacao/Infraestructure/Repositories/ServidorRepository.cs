@@ -1,6 +1,6 @@
 ﻿using API_Avaliacao.Domain.Entities;
-using API_Avaliacao.Domain.Interfaces;
 using API_Avaliacao.Infraestructure.Data;
+using API_Avaliacao.Infraestructure.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 namespace API_Avaliacao.Infraestructure.Repositories

@@ -1,6 +1,8 @@
 using API_Avaliacao.Application.Mappings;
 using API_Avaliacao.Domain.Interfaces;
+using API_Avaliacao.Domain.Services;
 using API_Avaliacao.Infraestructure.Data;
+using API_Avaliacao.Infraestructure.Interfaces;
 using API_Avaliacao.Infraestructure.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -16,8 +18,8 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<ConnectionDbContext>();
 
 //configuração de injeção de dependencia (AddSingleton, AddScoped, AddTransiente)
-builder.Services.AddScoped<IPessoaRepository, PessoaRepository>();
 builder.Services.AddScoped<IServidorRepository, ServidorRepository>();
+builder.Services.AddScoped<IServidorService, ServidorService>();
 
 builder.Services.AddAutoMapper(typeof(EntitiesToDtoMappingProfile));
 //

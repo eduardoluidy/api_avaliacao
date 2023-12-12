@@ -1,6 +1,6 @@
 ﻿using API_Avaliacao.Domain.Entities;
 
-namespace API_Avaliacao.Domain.Interfaces
+namespace API_Avaliacao.Infraestructure.Interfaces
 {
     public interface IPessoaRepository
     {
